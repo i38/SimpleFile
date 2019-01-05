@@ -1,0 +1,28 @@
+{
+  "name": "cordova-plugin-simplefile",
+  "version": "1.0.0",
+  "description": "Supported platform: * iOS * Android",
+  "cordova": {
+      "id": "https://github.com/i38/SimpleFile",
+      "platforms": [
+          "android",
+          "ios"
+      ]
+  },
+  "main": "simplefile.js",
+  "directories": {
+  },
+  "scripts": {
+      "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+      "type": "git",
+      "url": "git+https://github.com/i38/SimpleFile.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+      "url": "https://github.com/i38/SimpleFile/issues"
+  },
+  "homepage": "https://github.com/i38/SimpleFile#readme"
+}

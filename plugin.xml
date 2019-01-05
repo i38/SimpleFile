@@ -11,10 +11,6 @@
         <clobbers target="window.plugins.simpleFile" />
     </js-module>
 
-    <js-module src="www/async.js" name="Async">
-        <clobbers target="window.async" />
-    </js-module>
-
     <!-- android -->
     <platform name="android">
         <config-file target="res/xml/config.xml" parent="/*">

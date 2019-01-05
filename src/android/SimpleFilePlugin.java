@@ -123,6 +123,28 @@ public class SimpleFilePlugin extends CordovaPlugin {
 		return true; 	
 	}
 	
+  private boolean readText(final Context ctx, final JSONArray params, final CallbackContext callbackContext) throws Exception {
+
+		cordova.getActivity().runOnUiThread(new Runnable() {
+			public void run() {
+				try {
+					String root = params.getString(0);
+					String fileName = params.getString(1);
+          String encode = params.getString(2);
+					byte [] buff = readFile(ctx, root, fileName);
+					String text = new String(buff, encode);
+					
+					callbackContext.success(text);
+				}
+				catch(Exception e) {
+					callbackContext.error(e.getMessage());
+					return;
+				}
+			}
+		});
+		return true; 	
+	}
+
 	private void writeFile(Context ctx, String root, String fileName, byte [] data) throws Exception {
 		Log.d(TAG, "start write: " + root + "/" + fileName );
 		if ("bundle".equals(root)) {
@@ -168,6 +190,27 @@ public class SimpleFilePlugin extends CordovaPlugin {
 		return true; 	
 	}
 	
+
+	private boolean writeText(final Context ctx, final JSONArray params, final CallbackContext callbackContext) throws Exception {
+		cordova.getActivity().runOnUiThread(new Runnable() {
+			public void run() {
+				try {
+					String root = params.getString(0);
+					String fileName = params.getString(1);
+					String text = params.getString(2);
+          String encode = params.getString(3);
+
+					writeFile(ctx, root, fileName, text.getBytes(encode));
+					
+					callbackContext.success();
+				}
+				catch(Exception e) {
+					callbackContext.error(e.getMessage());
+				}
+			}
+		});
+		return true; 	
+	}  
 
 	private boolean remove(final Context ctx, final JSONArray args, final CallbackContext callbackContext) throws Exception {
 		cordova.getActivity().runOnUiThread(new Runnable() {
@@ -455,6 +498,12 @@ public class SimpleFilePlugin extends CordovaPlugin {
 			}
 			else if ("write".equals(action)) {				
 				return writeFile(ctx, args, callbackContext);		
+			}
+			else if ("readText".equals(action)) {				
+				return readText(ctx, args, callbackContext);		
+			}
+			else if ("writeText".equals(action)) {				
+				return writeText(ctx, args, callbackContext);		
 			}
 			else if ("remove".equals(action)) {
 				return remove(ctx, args, callbackContext);		

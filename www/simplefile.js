@@ -22,6 +22,26 @@ function FileSystem(root) {
             [self.root, fileName, data64]
         );
     };
+    self.readText = function(fileName, encode, successCallback, errorCallback) {
+      cordova.exec(
+          function(text) {
+              successCallback(text);
+          },
+          errorCallback,
+          "SimpleFilePlugin",
+          "readText",
+          [self.root,fileName, encode]
+      );
+    };
+    self.writeText = function(fileName, text, encode, successCallback, errorCallback) {
+        cordova.exec(
+            successCallback,
+            errorCallback,
+            "SimpleFilePlugin",
+            "writeText",
+            [self.root, fileName, text, encode]
+        );
+    };
     self.remove= function(fileName, successCallback, errorCallback) {
         cordova.exec(
             successCallback,

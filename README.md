@@ -39,12 +39,14 @@ The plugin exposes the ```window.plugins.simpleFile``` object. It provides acces
 ### Reading files
 
 	window.plugins.simpleFile.<fs>.read(fileName, successCallback, errorCallback)
+  window.plugins.simpleFile.<fs>.readText(fileName, encode, successCallback, errorCallback)
 
 Reads the contents of a file and provides them to the given successCallback.
 
 ### Writing to a file
    
 	window.plugins.simpleFile.<fs>.write(fileName, contents, successCallback, errorCallback)
+  window.plugins.simpleFile.<fs>.writeText(fileName, contents, encode, successCallback, errorCallback)
 
 Writes the contents in ```contents``` to the path provided in ```fileName```. This function will create any folders in ```fileName``` that do not exist yet. 
 

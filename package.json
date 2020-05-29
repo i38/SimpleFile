@@ -17,12 +17,12 @@
   },
   "repository": {
       "type": "git",
-      "url": "https://github.com/x1y9/SimpleFile"
+      "url": "https://github.com/x1y9/cordova-plugin-simplefile"
   },
   "author": "",
   "license": "ISC",
   "bugs": {
-      "url": "https://github.com/x1y9/SimpleFile/issues"
+      "url": "https://github.com/x1y9/cordova-plugin-simplefile/issues"
   },
-  "homepage": "https://github.com/x1y9/SimpleFile#readme"
+  "homepage": "https://github.com/x1y9/cordova-plugin-simplefile#readme"
 }
